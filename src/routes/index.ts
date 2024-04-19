@@ -21,6 +21,7 @@ export function startSwagger(app: Express): void {
   };
 
   //TODO: See how to use swaggerSpec
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const swaggerSpec = swaggerJSDoc(options);
 
   app.use(
@@ -28,8 +29,8 @@ export function startSwagger(app: Express): void {
     swaggerUi.serve,
     swaggerUi.setup(undefined, {
       swaggerOptions: {
-        url: '/swagger.json',
-      },
+        url: '/swagger.json'
+      }
     })
   );
 }

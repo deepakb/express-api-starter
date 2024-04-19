@@ -1,0 +1,13 @@
+coverage
+build/
+dist/
+node_modules/
+
+# Environment
+.npmrc
+.env
+archive
+.vscode/settings.json
+.DS_Store
+
+.husky

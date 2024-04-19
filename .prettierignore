@@ -1,0 +1,17 @@
+.env
+node_modules
+public
+
+package.json
+package-lock.json
+nodemon.json
+.prettierrc
+.prettierignore
+.eslintrc.js
+.eslintignore
+.husky
+.lintstagedrc
+.gitattributes
+.gitignore
+tsconfig.json
+tsoa.json

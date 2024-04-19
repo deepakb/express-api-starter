@@ -8,7 +8,7 @@ import notFoundRouter from './routes/notFoundRouter';
 
 export function createServer(): Express {
   const app = express();
-  app.use(express.static("public"));
+  app.use(express.static('public'));
 
   connect();
   app.use(logRequests);
