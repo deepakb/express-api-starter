@@ -1,14 +1,16 @@
 import express, { Express } from 'express';
+import bodyParser from 'body-parser';
 import connect from './lib/db';
 import logger from './lib/logger';
 import { handleErrors } from './middlewares/errorHandler';
 import { logRequests } from './middlewares/requestLogger';
 import { startRoutes, startSwagger } from './routes';
-import notFoundRouter from './routes/notFoundRouter';
+import notFoundRouter from './routes/notFound.router';
 
 export function createServer(): Express {
   const app = express();
   app.use(express.static('public'));
+  app.use(bodyParser.json());
 
   connect();
   app.use(logRequests);

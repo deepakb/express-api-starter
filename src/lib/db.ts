@@ -1,22 +1,18 @@
-import mongoose, { ConnectOptions, Connection } from 'mongoose';
+import mongoose, { ConnectOptions } from 'mongoose';
 import { DB_CONFIG } from '../config';
 import logger from './logger';
 
 const clientOptions = {
-  serverApi: {
-    version: '1',
-    strict: true,
-    deprecationErrors: true
-  }
+  dbName: DB_CONFIG.MONGO_DB_NAME
 } as ConnectOptions;
 
-let cachedConnection: Connection | null = null;
+let cachedConnection: typeof mongoose | null = null;
 
-async function connect(): Promise<Connection> {
+async function connect() {
   try {
-    if (!cachedConnection || cachedConnection.readyState !== 1) {
+    if (!cachedConnection) {
       if (DB_CONFIG.MONGODB_URI) {
-        const connection = await mongoose.createConnection(DB_CONFIG.MONGODB_URI, clientOptions);
+        const connection = await mongoose.connect(DB_CONFIG.MONGODB_URI, clientOptions);
         logger.info(`MongoDB connected successfully`);
         cachedConnection = connection;
       } else {
@@ -25,7 +21,7 @@ async function connect(): Promise<Connection> {
       }
     }
 
-    return cachedConnection!;
+    //return cachedConnection!;
   } catch (error) {
     logger.error('Error connecting to MongoDB:', error);
     throw error;

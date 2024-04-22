@@ -1,10 +1,12 @@
 import { Express } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
-import sampleRouter from './sampleRouter';
+import sampleRouter from './sample.router';
+import githubRouter from './github.router';
 
 export function startRoutes(app: Express): void {
   app.use('/', sampleRouter);
+  app.use('/github', githubRouter);
 }
 
 export function startSwagger(app: Express): void {

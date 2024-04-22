@@ -2,6 +2,7 @@ coverage
 build/
 dist/
 node_modules/
+public/
 
 # Environment
 .npmrc
