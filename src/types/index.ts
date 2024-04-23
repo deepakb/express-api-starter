@@ -1,6 +1,14 @@
+import { ContentEmbedding } from '@google/generative-ai';
+
 export interface Config {
   PORT: number;
   GOOGLE_AI_API_KEY: string;
+  OPEN_AI_API_KEY: string;
+}
+
+export interface DbConfig {
+  MONGODB_URI: string;
+  MONGO_DB_NAME: string;
 }
 
 export interface Repository {
@@ -10,7 +18,7 @@ export interface Repository {
 }
 
 export interface RepositoryChunk {
-  content: string;
+  content: ContentEmbedding;
   filePath: string;
   url: string;
 }

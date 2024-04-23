@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const chunkSchema = new Schema<RepositoryChunk>(
   {
     content: {
-      type: String,
+      type: Array<number>,
       required: true
     },
     filePath: {
